@@ -1,4 +1,4 @@
-# Marketplace de Productos
+# Marketplace de productos de Maru y gatitas 
 
 Sistema de gestión de productos, clientes y pedidos desarrollado con Django.
 

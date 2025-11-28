@@ -1,29 +1,17 @@
 {% extends "base.html" %}
 
-{% block title %}
-    {% if etiqueta %}Editar Etiqueta{% else %}Crear Etiqueta{% endif %}
-{% endblock %}
+{% block title %}Crear pedido{% endblock %}
 
 {% block content %}
 
-<h1 class="mb-4">
-    {% if etiqueta %}Editar Etiqueta{% else %}Crear Etiqueta{% endif %}
-</h1>
+<h1 class="mb-4">Crear pedido</h1>
 
-<form method="POST">
+<form method="post">
     {% csrf_token %}
+    {{ form.as_p }}
 
-    <div class="mb-3">
-        <label class="form-label">Nombre:</label>
-        <input type="text" name="nombre" class="form-control"
-               value="{{ etiqueta.nombre|default:'' }}" required>
-    </div>
-
-    <button class="btn btn-success">
-        {% if etiqueta %}Actualizar{% else %}Crear{% endif %}
-    </button>
-
-    <a href="/etiquetas/" class="btn btn-secondary">Cancelar</a>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    <a href="{% url 'lista_pedidos' %}" class="btn btn-secondary">Cancelar</a>
 </form>
 
 {% endblock %}

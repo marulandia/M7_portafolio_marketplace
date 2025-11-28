@@ -13,7 +13,7 @@ Este es un marketplace Django que permite gestionar:
 
 ```
 Productos/
-├── producto/                 # Configuración principal de Django
+├── producto/                # Configuración principal de Django
 │   ├── settings.py          # Configuración de la aplicación
 │   ├── urls.py              # Rutas principales
 │   ├── wsgi.py              # WSGI para producción

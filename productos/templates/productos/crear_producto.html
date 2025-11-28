@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Crear Producto{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Crear Producto</h1>
+
+<form method="POST">
+    {% csrf_token %}
+
+    <div class="row">
+        <div class="col-md-6">
+            <h4>Información del Producto</h4>
+            {{ form.as_p }}
+        </div>
+
+        <div class="col-md-6">
+            <h4>Detalles</h4>
+            {{ detalle_form.as_p }}
+        </div>
+    </div>
+
+    <button class="btn btn-success mt-3">Guardar</button>
+    <a href="/productos/" class="btn btn-secondary mt-3">Volver</a>
+</form>
+
+{% endblock %}

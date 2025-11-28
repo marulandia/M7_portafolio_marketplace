@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Detalle cliente{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Detalle de cliente</h1>
+
+<ul class="list-group mb-3">
+    <li class="list-group-item"><strong>Nombre:</strong> {{ cliente.nombre }}</li>
+    <li class="list-group-item"><strong>Email:</strong> {{ cliente.email }}</li>
+    <li class="list-group-item"><strong>Teléfono:</strong> {{ cliente.telefono }}</li>
+</ul>
+
+<a href="{% url 'editar_cliente' cliente.pk %}" class="btn btn-warning">Editar</a>
+<a href="{% url 'lista_clientes' %}" class="btn btn-secondary">Volver a la lista</a>
+{% endblock %}

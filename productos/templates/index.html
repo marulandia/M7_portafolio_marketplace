@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block content %}
+
+<div class="text-center mt-4">
+
+    <h1 class="mb-4">Bienvenido al Marketplace de Maru y gatitas</h1>
+
+    <p class="lead mb-4">
+        Explora productos usados de buena calidad al mejor precio.
+    </p>
+
+    <div class="d-flex justify-content-center gap-3 mb-5">
+        <a href="{% url 'lista_productos' %}" class="btn btn-primary btn-lg">Ver productos</a>
+        <a href="{% url 'lista_pedidos' %}" class="btn btn-outline-dark btn-lg">Pedidos</a>
+
+        {% if user.is_superuser %}
+        <a href="{% url 'lista_clientes' %}" class="btn btn-outline-secondary btn-lg">Clientes</a>
+        {% endif %}
+    </div>
+
+    <h3 class="mb-3">Últimos productos cargados</h3>
+
+    <div class="row justify-content-center">
+
+        {% for p in productos %}
+        <div class="col-md-4 mb-3">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">{{ p.nombre }}</h5>
+                    <p><strong>$ {{ p.precio }}</strong></p>
+
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'detalle_producto' p.pk %}" class="btn btn-sm btn-dark">
+                            Ver detalle
+                        </a>
+                    {% else %}
+                        <a href="{% url 'login' %}?next={% url 'detalle_producto' p.pk %}"
+                           class="btn btn-sm btn-outline-secondary">
+                           Ver detalle
+                        </a>
+                    {% endif %}
+
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p>No hay productos cargados todavía.</p>
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock %}

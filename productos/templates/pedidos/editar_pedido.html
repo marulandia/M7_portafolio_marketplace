@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Editar pedido{% endblock %}
+
+{% block content %}
+
+<h1 class="mb-4">Editar pedido</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit" class="btn btn-primary">Guardar cambios</button>
+    <a href="{% url 'lista_pedidos' %}" class="btn btn-secondary">Cancelar</a>
+</form>
+
+{% endblock %}

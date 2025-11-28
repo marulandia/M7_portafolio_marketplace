@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Editar Producto{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Editar Producto</h1>
+
+<form method="POST">
+    {% csrf_token %}
+
+    <div class="row">
+        <div class="col-md-6">
+            <h4>Información del Producto</h4>
+            {{ form.as_p }}
+        </div>
+
+        <div class="col-md-6">
+            <h4>Detalles</h4>
+            {{ detalle_form.as_p }}
+        </div>
+    </div>
+
+    <button class="btn btn-primary mt-3">Actualizar</button>
+    <a href="/productos/{{ producto.id }}/" class="btn btn-secondary mt-3">Cancelar</a>
+</form>
+
+{% endblock %}

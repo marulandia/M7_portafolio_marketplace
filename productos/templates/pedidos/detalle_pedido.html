@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Detalle pedido{% endblock %}
+
+{% block content %}
+
+<h1 class="mb-4">Detalle del pedido</h1>
+
+<ul class="list-group mb-3">
+    <li class="list-group-item"><strong>ID:</strong> {{ pedido.id }}</li>
+    <li class="list-group-item"><strong>Cliente:</strong> {{ pedido.cliente.nombre }}</li>
+    <li class="list-group-item"><strong>Fecha:</strong> {{ pedido.fecha_pedido }}</li>
+    <li class="list-group-item">
+        <strong>Productos:</strong><br>
+        {% for producto in pedido.productos.all %}
+            <span class="badge bg-dark">{{ producto.nombre }}</span>
+        {% empty %}
+            <span class="text-muted">(Sin productos)</span>
+        {% endfor %}
+    </li>
+</ul>
+
+<a href="{% url 'editar_pedido' pedido.pk %}" class="btn btn-warning">Editar</a>
+<a href="{% url 'lista_pedidos' %}" class="btn btn-secondary">Volver a la lista</a>
+
+{% endblock %}

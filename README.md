@@ -2,14 +2,14 @@
 
 Sistema de gestión de productos, clientes y pedidos desarrollado con Django.
 
-## 📋 Descripción del Proyecto
+## 📋 Descripción 
 
 Este es un marketplace Django que permite gestionar:
 - **Productos**: Crear, editar, eliminar y listar productos con precios y cantidades
 - **Clientes**: Gestionar información de clientes con perfiles detallados
 - **Pedidos**: Crear y administrar pedidos asociados a clientes
 
-## 🏗️ Estructura del Proyecto
+## 🏗️ Estructura 
 
 ```
 Productos/
@@ -39,7 +39,7 @@ Productos/
 └── carga_usuarios.py        # Script de carga de usuarios
 ```
 
-## 🗄️ Modelos de Datos
+## 🗄️ Modelos de datos
 
 ### Producto
 ```python
@@ -72,16 +72,16 @@ Productos/
 - total: DecimalField (2 decimales)
 ```
 
-## 🔐 Sistema de Autenticación y Permisos
+## 🔐 Sistema de autenticación y permisos
 
 El proyecto usa el sistema de autenticación de Django con control de permisos:
 
-### Decoradores de Vista
+### Decoradores de vista
 - `@login_required`: Requiere usuario autenticado
 - `@permission_required()`: Requiere permisos específicos
 - `@superuser_required`: Solo para superusuarios
 
-### Permisos Configurados
+### Permisos configurados
 - `productos.add_producto`: Crear productos
 - `productos.change_producto`: Editar productos
 - `productos.delete_producto`: Eliminar productos
@@ -92,13 +92,13 @@ El proyecto usa el sistema de autenticación de Django con control de permisos:
 - `productos.change_pedido`: Editar pedidos
 - `productos.delete_pedido`: Eliminar pedidos
 
-## 🚀 Instalación y Configuración
+## 🚀 Instalación y configuración
 
-### Requisitos Previos
+### Requisitos previos
 - Python 3.8+
 - pip (gestor de paquetes)
 
-### Pasos de Instalación
+### Pasos de instalación
 
 1. **Clonar el repositorio**
 ```bash
@@ -146,9 +146,9 @@ python manage.py runserver
 
 El servidor estará disponible en: `http://127.0.0.1:8000/`
 
-## 📄 Rutas Principales
+## 📄 Rutas principales
 
-### Páginas Públicas
+### Páginas públicas
 - `/` - Página de inicio
 - `/productos/` - Listado de productos
 - `/productos/<id>/` - Detalle de producto
@@ -183,7 +183,7 @@ El proyecto utiliza Bootstrap para el diseño responsivo. Los templates están o
 - **clientes/**: Templates para gestión de clientes
 - **pedidos/**: Templates para gestión de pedidos
 
-### Estructura Común de Templates
+### Estructura común de templates
 - `lista_*.html`: Listado con tabla
 - `detalle_*.html`: Detalles del objeto
 - `crear_*.html`: Formulario de creación
@@ -202,7 +202,7 @@ En el admin puedes:
 - Ver y editar productos, clientes y pedidos
 - Gestionar perfiles de clientes
 
-## 📦 Scripts de Utilidad
+## 📦 Scripts de utilidad
 
 ### carga_usuarios.py
 Carga usuarios iniciales en la base de datos con diferentes roles y permisos.
@@ -210,23 +210,23 @@ Carga usuarios iniciales en la base de datos con diferentes roles y permisos.
 ### carga_productos.py
 Carga un catálogo inicial de productos de ejemplo.
 
-## 🛠️ Tecnologías Utilizadas
+## 🛠️ Tecnologías utilizadas
 
 - **Django 5.2.8**: Framework web Python
 - **Bootstrap**: Framework CSS responsive
 - **SQLite**: Base de datos (por defecto)
 - **Python 3**: Lenguaje de programación
 
-## 📝 Funcionalidades Principales
+## 📝 Funcionalidades principales
 
-### Gestión de Productos
+### Gestión de productos
 - Listar todos los productos
 - Ver detalles de cada producto
 - Crear nuevos productos (requiere autenticación)
 - Editar productos existentes
 - Eliminar productos
 
-### Gestión de Clientes
+### Gestión de clientes
 - Listar clientes
 - Ver perfil completo del cliente
 - Crear nuevos clientes
@@ -249,7 +249,7 @@ Carga un catálogo inicial de productos de ejemplo.
 - Validación de formularios
 - Contraseñas hasheadas
 
-## 📈 Próximas Mejoras
+## 📈 Próximas mejoras
 
 - [ ] Sistema de carrito de compras
 - [ ] Pasarela de pago

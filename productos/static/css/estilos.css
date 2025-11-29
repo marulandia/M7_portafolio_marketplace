@@ -1,3 +1,88 @@
+.acciones-td {
+    padding-top: 1.2rem !important;
+    padding-bottom: 1.2rem !important;
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+}
+.acciones-botones .btn, .acciones-btns .btn, .acciones .btn {
+    min-width: 80px;
+    padding: 0.5rem 1.1rem;
+    font-size: 1rem;
+    height: 42px;
+    line-height: 1.1;
+}
+/* Acciones CRUD: botones en fila y separados */
+.acciones-botones, .acciones-btns, .acciones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+.acciones-botones .btn, .acciones-btns .btn, .acciones .btn {
+    margin-bottom: 0 !important;
+}
+/* Unificación de botones pastel */
+.btn, .btn-primary, .btn-warning, .btn-danger, .btn-info, .btn-secondary, .btn-success, .btn-outline-light {
+    background: linear-gradient(135deg, var(--pastel-blue), var(--pastel-pink));
+    color: #5a2584 !important;
+    font-weight: 700;
+    border: none;
+    border-radius: 0.7rem;
+    min-height: 48px;
+    min-width: 120px;
+    padding: 0.7rem 2rem;
+    text-align: center;
+    vertical-align: middle;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    box-shadow: 0 2px 8px rgba(153,204,255,0.10);
+    text-shadow: none;
+    transition: background 0.2s, box-shadow 0.2s, color 0.2s;
+}
+.btn:hover, .btn:focus, .btn-primary:hover, .btn-warning:hover, .btn-danger:hover, .btn-info:hover, .btn-secondary:hover, .btn-success:hover, .btn-outline-light:hover {
+    background: linear-gradient(135deg, var(--pastel-purple), var(--pastel-blue));
+    color: #3a1a5a !important;
+    box-shadow: 0 4px 16px rgba(153,204,255,0.18);
+}
+
+/* Botón pagar y agregar al carrito */
+.btn-success, .btn-pagar, .btn-agregar-carrito {
+    background: linear-gradient(135deg, var(--pastel-green), var(--pastel-cyan));
+    color: #5a2584 !important;
+}
+.btn-success:hover, .btn-pagar:hover, .btn-agregar-carrito:hover {
+    background: linear-gradient(135deg, var(--pastel-cyan), var(--pastel-green));
+    color: #3a1a5a !important;
+}
+
+/* Eliminar bordes y fondos blancos de todos los botones */
+.btn:active, .btn:focus {
+    outline: none !important;
+    box-shadow: 0 0 0 2px var(--pastel-purple) !important;
+}
+
+/* Tarjetas de igual tamaño */
+.card {
+    min-height: 420px;
+    max-height: 420px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.card-img-top {
+    max-height: 200px;
+    object-fit: cover;
+}
+.card-body {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 /* Botones CRUD pastel */
 .btn-primary {
     background: linear-gradient(135deg, var(--pastel-blue), var(--pastel-purple));

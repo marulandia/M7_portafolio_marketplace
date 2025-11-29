@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import (
     permission_required,
     user_passes_test,
 )
+from django.contrib.auth import logout 
 
 from .models import Producto, Cliente, Pedido
 from .forms import ProductoForm, ClienteForm, PedidoForm
@@ -167,3 +168,7 @@ def eliminar_pedido(request, pk):
         pedido.delete()
         return redirect('lista_pedidos')
     return render(request, 'pedidos/eliminar_pedido.html', {'pedido': pedido})
+
+def logout_view(request):
+    logout(request)
+    return redirect('index')

@@ -1,16 +1,16 @@
 {% extends "base.html" %}
 
-{% block title %}Editar Producto{% endblock %}
+{% block title %}Editar producto{% endblock %}
 
 {% block content %}
-<h1 class="mb-4">Editar Producto</h1>
+<h1 class="mb-4">Editar producto</h1>
 
 <form method="POST">
     {% csrf_token %}
 
     <div class="row">
         <div class="col-md-6">
-            <h4>Información del Producto</h4>
+            <h4>Información del producto</h4>
             {{ form.as_p }}
         </div>
 

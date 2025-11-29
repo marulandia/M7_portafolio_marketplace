@@ -32,16 +32,9 @@
                     <h5 class="card-title">{{ p.nombre }}</h5>
                     <p><strong>$ {{ p.precio }}</strong></p>
 
-                    {% if user.is_authenticated %}
-                        <a href="{% url 'detalle_producto' p.pk %}" class="btn btn-sm btn-dark">
-                            Ver detalle
-                        </a>
-                    {% else %}
-                        <a href="{% url 'login' %}?next={% url 'detalle_producto' p.pk %}"
-                           class="btn btn-sm btn-outline-secondary">
-                           Ver detalle
-                        </a>
-                    {% endif %}
+                    <a href="{% url 'detalle_producto' p.pk %}" class="btn btn-sm btn-dark">
+                        Ver detalle
+                    </a>
 
                 </div>
             </div>

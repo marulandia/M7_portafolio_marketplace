@@ -1,14 +1,29 @@
 from django.db import models
+from django.core.validators import MinValueValidator
 
 
 class Producto(models.Model):
     nombre = models.CharField(max_length=100)
     descripcion = models.TextField(blank=True, null=True) 
-    precio = models.DecimalField(max_digits=10, decimal_places=2)
-    cantidad = models.IntegerField()
+    precio = models.DecimalField(
+        max_digits=10, 
+        decimal_places=2,
+        validators=[MinValueValidator(0.01)],
+        help_text="Precio debe ser mayor a 0.00"
+    )
+    cantidad = models.IntegerField(
+        validators=[MinValueValidator(0)],
+        help_text="Cantidad no puede ser negativa"
+    )
+
+    class Meta:
+        ordering = ['nombre']
+        indexes = [
+            models.Index(fields=['nombre']),
+        ]
 
     def __str__(self):
-        return self.nombre
+        return f"{self.nombre} - ${self.precio}"
 
 
 class Cliente(models.Model):

@@ -1,0 +1,306 @@
+/* Botones CRUD pastel */
+.btn-primary {
+    background: linear-gradient(135deg, var(--pastel-blue), var(--pastel-purple));
+    border: none;
+    color: #fff;
+    font-weight: 700;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.12);
+    box-shadow: 0 2px 8px rgba(153,204,255,0.10);
+    transition: background 0.2s, box-shadow 0.2s;
+}
+.btn-primary:hover, .btn-primary:focus {
+    background: linear-gradient(135deg, var(--pastel-blue), var(--pastel-pink));
+    box-shadow: 0 4px 16px rgba(153,204,255,0.18);
+}
+
+.btn-warning {
+    background: linear-gradient(135deg, var(--pastel-yellow), var(--pastel-orange));
+    border: none;
+    color: #a85b00;
+    font-weight: 700;
+    text-shadow: 0 1px 2px rgba(255,255,204,0.12);
+    box-shadow: 0 2px 8px rgba(255,236,179,0.10);
+    transition: background 0.2s, box-shadow 0.2s;
+}
+.btn-warning:hover, .btn-warning:focus {
+    background: linear-gradient(135deg, var(--pastel-orange), var(--pastel-yellow));
+    box-shadow: 0 4px 16px rgba(255,236,179,0.18);
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, var(--pastel-red), var(--pastel-pink));
+    border: none;
+    color: #a8002a;
+    font-weight: 700;
+    text-shadow: 0 1px 2px rgba(255,204,204,0.12);
+    box-shadow: 0 2px 8px rgba(255,153,153,0.10);
+    transition: background 0.2s, box-shadow 0.2s;
+}
+.btn-danger:hover, .btn-danger:focus {
+    background: linear-gradient(135deg, var(--pastel-pink), var(--pastel-red));
+    box-shadow: 0 4px 16px rgba(255,153,153,0.18);
+}
+
+.btn-info {
+    background: linear-gradient(135deg, var(--pastel-cyan), var(--pastel-blue));
+    border: none;
+    color: #0a3a4a;
+    font-weight: 700;
+    text-shadow: 0 1px 2px rgba(204,255,255,0.12);
+    box-shadow: 0 2px 8px rgba(153,255,255,0.10);
+    transition: background 0.2s, box-shadow 0.2s;
+}
+.btn-info:hover, .btn-info:focus {
+    background: linear-gradient(135deg, var(--pastel-blue), var(--pastel-cyan));
+    box-shadow: 0 4px 16px rgba(153,255,255,0.18);
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, var(--pastel-purple), var(--pastel-blue));
+    border: none;
+    color: #3a2a5a;
+    font-weight: 700;
+    text-shadow: 0 1px 2px rgba(204,204,255,0.12);
+    box-shadow: 0 2px 8px rgba(204,204,255,0.10);
+    transition: background 0.2s, box-shadow 0.2s;
+}
+.btn-secondary:hover, .btn-secondary:focus {
+    background: linear-gradient(135deg, var(--pastel-blue), var(--pastel-purple));
+    box-shadow: 0 4px 16px rgba(204,204,255,0.18);
+}
+/* Paleta Pastel Arcoíris */
+:root {
+    --pastel-red: #ff9999;
+    --pastel-orange: #ffcc99;
+    --pastel-yellow: #fffacd;
+    --pastel-green: #99ff99;
+    --pastel-cyan: #99ffff;
+    --pastel-blue: #99ccff;
+    --pastel-purple: #e6ccff;
+    --pastel-pink: #ffccff;
+}
+
+/* Fondo general con gradiente arcoíris pastel */
+body {
+    background: linear-gradient(
+        135deg,
+        var(--pastel-red) 0%,
+        var(--pastel-orange) 14.28%,
+        var(--pastel-yellow) 28.56%,
+        var(--pastel-green) 42.84%,
+        var(--pastel-cyan) 57.12%,
+        var(--pastel-blue) 71.4%,
+        var(--pastel-purple) 85.68%,
+        var(--pastel-pink) 100%
+    );
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    animation: gradientShift 15s ease infinite;
+    background-size: 400% 400%;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Paleta Pastel - Variables CSS */
+:root-old {
+    --pastel-lavender: #e6e6fa;
+    --pastel-pink: #ffc0dd;
+    --pastel-peach: #ffd4b4;
+    --pastel-mint: #c0f0fc;
+    --pastel-yellow: #fffacd;
+    --pastel-lilac: #f0e6fa;
+    --primary-dark: #9370db;
+    --primary-light: #e6ccff;
+}
+
+/* Fondo general con gradiente pastel */
+body {
+    background: linear-gradient(135deg, #f5f7ff 0%, #ffeef8 50%, #e0f7ff 100%);
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.bg-main {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f5f7ff 0%, #e9f5ff 40%, #ffeef8 100%);
+}
+
+/* Navbar con gradiente pastel suave */
+.navbar-custom {
+    background: linear-gradient(90deg, #d4a5ff 0%, #ffb3d9 50%, #b3d9ff 100%);
+}
+
+.navbar-custom .navbar-brand {
+    font-size: 1.3rem;
+    letter-spacing: 0.03em;
+    font-weight: 700;
+    color: #fff !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-custom .nav-link {
+    position: relative;
+    margin-right: 0.5rem;
+    transition: color 0.2s ease, transform 0.2s ease;
+    color: #fff !important;
+}
+
+.navbar-custom .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 2px;
+    width: 0;
+    height: 2px;
+    background-color: #fff;
+    transition: width 0.2s ease;
+}
+
+.navbar-custom .nav-link:hover {
+    color: #fff !important;
+    transform: translateY(-1px);
+}
+
+.navbar-custom .nav-link:hover::after {
+    width: 100%;
+}
+
+/* Tarjetas con gradientes únicos por tipo */
+.card {
+    border-radius: 1.2rem;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 8px 20px rgba(147, 112, 219, 0.08);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(147, 112, 219, 0.15);
+}
+
+/* Gradientes específicos para tarjetas */
+.card:nth-child(1) {
+    background: linear-gradient(135deg, var(--pastel-lavender) 0%, var(--pastel-pink) 100%);
+}
+
+.card:nth-child(2) {
+    background: linear-gradient(135deg, var(--pastel-peach) 0%, var(--pastel-yellow) 100%);
+}
+
+.card:nth-child(3) {
+    background: linear-gradient(135deg, var(--pastel-mint) 0%, var(--pastel-lavender) 100%);
+}
+
+.card:nth-child(4) {
+    background: linear-gradient(135deg, var(--pastel-lilac) 0%, var(--pastel-pink) 100%);
+}
+
+.card:nth-child(n+5) {
+    background: linear-gradient(135deg, var(--pastel-yellow) 0%, var(--pastel-mint) 100%);
+}
+
+.card-title {
+    color: #9370db;
+    font-weight: 700;
+}
+
+.card-text {
+    color: #666;
+}
+
+/* Botones con gradientes */
+.btn-primary {
+    background: linear-gradient(135deg, #d4a5ff, #ffb3d9);
+    border: none;
+    color: #fff;
+    font-weight: 600;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #c99fff, #ffa3cc);
+    filter: brightness(0.95);
+}
+
+.btn-outline-light.btn-sm {
+    border-radius: 999px;
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+.btn-outline-light.btn-sm:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Tabla con gradientes suaves */
+.table {
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 0.9rem;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(147, 112, 219, 0.06);
+}
+
+.table thead {
+    background: linear-gradient(90deg, #e0ccff, #ffc0dd);
+}
+
+.table thead th {
+    border-bottom: none;
+    font-weight: 700;
+    color: #7d5ba6;
+}
+
+.table tbody tr {
+    transition: background-color 0.15s ease;
+}
+
+.table tbody tr:hover {
+    background-color: rgba(212, 165, 255, 0.08);
+}
+
+/* Footer */
+.footer-main {
+    padding: 2rem 0;
+    background: linear-gradient(90deg, #d4a5ff 0%, #ffb3d9 50%, #b3d9ff 100%);
+    color: #fff;
+    margin-top: auto;
+    text-align: center;
+}
+
+/* Títulos principales */
+.hero-title {
+    font-size: clamp(1.9rem, 2.4vw, 2.4rem);
+    font-weight: 700;
+    background: linear-gradient(135deg, #9370db 0%, #d4a5ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .navbar-custom .navbar-brand {
+        font-size: 1.1rem;
+    }
+    .card {
+        border-radius: 1rem;
+    }
+}
+
+.hero-subtitle {
+    color: #4b5563;
+}
+
+/* Responsive tweaks */
+@media (max-width: 767.98px) {
+    .navbar-custom .navbar-brand {
+        font-size: 1.1rem;
+    }
+
+    main.container {
+        padding-bottom: 4rem;
+    }
+}

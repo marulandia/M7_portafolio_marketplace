@@ -1,40 +1,64 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block title %}Detalle de producto{% endblock %}
 
 {% block content %}
 <h1 class="mb-4">Detalle del producto</h1>
 
-<div class="card">
-    <div class="card-body">
-        <h3>{{ producto.nombre }}</h3>
-        <p><strong>Descripción:</strong> {{ producto.descripcion }}</p>
-        <p><strong>Categoría:</strong> {{ producto.categoria.nombre }}</p>
-        <p><strong>Precio:</strong> ${{ producto.precio }}</p>
+<div class="row">
+    <div class="col-md-6 mb-4">
+        <img src="{% static 'img/arcoiris.png' %}" class="img-fluid rounded" alt="{{ producto.nombre }}" style="max-height: 400px; object-fit: cover; width: 100%;">
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h3>{{ producto.nombre }}</h3>
+                <p><strong>Descripción:</strong> {{ producto.descripcion }}</p>
+                <p><strong>Categoría:</strong> {{ producto.categoria.nombre }}</p>
+                <p><strong>Precio:</strong> ${{ producto.precio }}</p>
 
-        <p><strong>Etiquetas:</strong>
-            {% for e in producto.etiquetas.all %}
-                <span class="badge bg-dark">{{ e.nombre }}</span>
-            {% empty %}
-                <span class="text-muted">Sin etiquetas</span>
-            {% endfor %}
-        </p>
+                <p><strong>Etiquetas:</strong>
+                    {% for e in producto.etiquetas.all %}
+                        <span class="badge bg-dark">{{ e.nombre }}</span>
+                    {% empty %}
+                        <span class="text-muted">Sin etiquetas</span>
+                    {% endfor %}
+                </p>
 
-        {% if producto.detalle %}
-        <p><strong>Dimensiones:</strong> {{ producto.detalle.dimensiones }}</p>
-        <p><strong>Peso:</strong> {{ producto.detalle.peso }}</p>
-        {% endif %}
+                {% if producto.detalle %}
+                <p><strong>Dimensiones:</strong> {{ producto.detalle.dimensiones }}</p>
+                <p><strong>Peso:</strong> {{ producto.detalle.peso }}</p>
+                {% endif %}
+
+                <div class="mt-4">
+                    {% if user.is_authenticated %}
+                        <form method="POST" action="{% url 'agregar_carrito' producto.pk %}" style="display: inline;">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-success btn-lg">
+                                🛒 Agregar al carrito
+                            </button>
+                        </form>
+                    {% else %}
+                        <a href="{% url 'login' %}" class="btn btn-success btn-lg">
+                            🛒 Agregar al carrito
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
-<a href="/productos/" class="btn btn-secondary mt-3">Volver</a>
-{% if user.is_authenticated %}
-    {% if perms.productos.change_producto %}
-        <a href="/productos/{{ producto.id }}/editar/" class="btn btn-warning mt-3">Editar</a>
+<div class="mt-4">
+    <a href="/productos/" class="btn btn-secondary">Volver</a>
+    {% if user.is_authenticated %}
+        {% if perms.productos.change_producto %}
+            <a href="/productos/{{ producto.id }}/editar/" class="btn btn-warning">Editar</a>
+        {% endif %}
+        {% if perms.productos.delete_producto %}
+            <a href="/productos/{{ producto.id }}/eliminar/" class="btn btn-danger">Eliminar</a>
+        {% endif %}
     {% endif %}
-    {% if perms.productos.delete_producto %}
-        <a href="/productos/{{ producto.id }}/eliminar/" class="btn btn-danger mt-3">Eliminar</a>
-    {% endif %}
-{% endif %}
 
 {% endblock %}

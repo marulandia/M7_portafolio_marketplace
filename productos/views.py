@@ -172,3 +172,62 @@ def eliminar_pedido(request, pk):
 def logout_view(request):
     logout(request)
     return redirect('index')
+
+
+@login_required
+def agregar_carrito(request, pk):
+    """Agregar producto al carrito del usuario"""
+    if request.method == 'POST':
+        producto = get_object_or_404(Producto, pk=pk)
+        # Guardar en sesión el carrito
+        carrito = request.session.get('carrito', {})
+        
+        if str(pk) in carrito:
+            carrito[str(pk)]['cantidad'] += 1
+        else:
+            carrito[str(pk)] = {
+                'nombre': producto.nombre,
+                'precio': str(producto.precio),
+                'cantidad': 1
+            }
+        
+        request.session['carrito'] = carrito
+        return redirect('detalle_producto', pk=pk)
+    
+    return redirect('detalle_producto', pk=pk)
+
+
+def ver_carrito(request):
+    """Ver carrito del usuario"""
+    carrito = request.session.get('carrito', {})
+    total = 0
+    items = []
+    
+    for product_id, item in carrito.items():
+        precio = float(item['precio'])
+        cantidad = item['cantidad']
+        subtotal = precio * cantidad
+        total += subtotal
+        items.append({
+            'id': product_id,
+            'nombre': item['nombre'],
+            'precio': precio,
+            'cantidad': cantidad,
+            'subtotal': subtotal
+        })
+    
+    return render(request, 'carrito/ver_carrito.html', {
+        'items': items,
+        'total': total
+    })
+
+
+def eliminar_carrito(request, pk):
+    """Eliminar producto del carrito"""
+    carrito = request.session.get('carrito', {})
+    
+    if str(pk) in carrito:
+        del carrito[str(pk)]
+    
+    request.session['carrito'] = carrito
+    return redirect('ver_carrito')

@@ -1,23 +1,24 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block title %}Inicio{% endblock %}
 
 {% block content %}
 
-<div class="text-center mt-4">
+<div class="text-center mt-4 pb-5">
 
-    <h1 class="mb-4">Bienvenido al Marketplace de Maru y gatitas</h1>
+    <h1 class="mb-4 hero-title">Bienvenido al Marketplace de Maru y gatitas</h1>
 
     <p class="lead mb-4">
         Explora productos usados de buena calidad al mejor precio.
     </p>
 
-    <div class="d-flex justify-content-center gap-3 mb-5">
+    <div class="d-flex justify-content-center gap-3 mb-5 flex-wrap">
         <a href="{% url 'lista_productos' %}" class="btn btn-primary btn-lg">Ver productos</a>
-        <a href="{% url 'lista_pedidos' %}" class="btn btn-outline-dark btn-lg">Pedidos</a>
+        <a href="{% url 'lista_pedidos' %}" class="btn btn-outline-light btn-lg">Pedidos</a>
 
         {% if user.is_superuser %}
-        <a href="{% url 'lista_clientes' %}" class="btn btn-outline-secondary btn-lg">Clientes</a>
+        <a href="{% url 'lista_clientes' %}" class="btn btn-outline-light btn-lg">Clientes</a>
         {% endif %}
     </div>
 
@@ -27,12 +28,13 @@
 
         {% for p in productos %}
         <div class="col-md-4 mb-3">
-            <div class="card shadow-sm">
+            <div class="card">
+                <img src="{% static 'img/arcoiris.png' %}" class="card-img-top" alt="{{ p.nombre }}" style="height: 250px; object-fit: cover;">
                 <div class="card-body">
                     <h5 class="card-title">{{ p.nombre }}</h5>
                     <p><strong>$ {{ p.precio }}</strong></p>
 
-                    <a href="{% url 'detalle_producto' p.pk %}" class="btn btn-sm btn-dark">
+                    <a href="{% url 'detalle_producto' p.pk %}" class="btn btn-sm btn-primary">
                         Ver detalle
                     </a>
 
@@ -40,7 +42,7 @@
             </div>
         </div>
         {% empty %}
-        <p>No hay productos cargados todavía.</p>
+        <p class="text-muted">No hay productos cargados todavía.</p>
         {% endfor %}
 
     </div>
